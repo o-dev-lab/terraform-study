@@ -26,7 +26,7 @@
 module "vpc" {
   source = "../../modules/vpc"
   vpc_cidr = var.vpc_cidr
-  tags = {
-    Name = var.vpc_name
-  }
+#  tags = {
+#    Name = var.vpc_name
+#  }
 }
