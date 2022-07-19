@@ -7,8 +7,7 @@ resource "aws_vpc" "vpc" {
   tags = merge(
     var.tags,
     {
-      Name = "${var.vpc_name}-vpc",
-      Env  = "${var.env}"
+      Name = "${var.vpc_name}-vpc"
     }
   )
 }
