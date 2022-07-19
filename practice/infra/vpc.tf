@@ -14,7 +14,6 @@
  }
  variable "vpc_name" {
    description = "VPC Name"
-   type        = string
    default     = "yk-vpc"
  }
  variable "env" {
@@ -26,7 +25,6 @@
 module "vpc" {
   source = "../../modules/vpc"
   vpc_cidr = var.vpc_cidr
-#  tags = {
-#    Name = var.vpc_name
-#  }
+  vpc_name = var.vpc_name
+
 }
