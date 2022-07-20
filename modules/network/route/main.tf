@@ -5,7 +5,6 @@
 
 #라우팅 테이블 생성
 resource "aws_route_table" "rt" {
-  count = length(var.env)
   vpc_id = var.vpc_id
   tags = {
     Name = "${var.env}-rt"

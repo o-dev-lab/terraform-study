@@ -56,10 +56,10 @@ module "nat" {
 ############################################################################################################
 
 module "rt" {
+  count = length(local.subnet_cidrs)
   source = "../../modules/network/route"
-  for_each = local.subnet_cidrs
 
-  env    = each.key
+  env    = local.subnet_cidrs[count.index]
 #  routings = {}
 #  rt_id = ""
 #  subnetting = each.value
