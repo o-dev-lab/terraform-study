@@ -29,7 +29,6 @@ module "subnet" {
   for_each = local.subnet_cidrs
 
   vpc_id     = module.vpc.vpc_id
-  cidr_block = var.subnetting[count.index]
   azs        = local.azs
   env        = each.key
   subnetting = each.value
