@@ -55,4 +55,24 @@ module "nat" {
 # Route table
 ############################################################################################################
 
+module "rt" {
+  source = "../../modules/network/route"
+  for_each = local.subnet_cidrs
 
+  env    = each.key
+#  routings = {}
+#  rt_id = ""
+#  subnetting = each.value
+  vpc_id = module.vpc.vpc_id
+}
+
+#module "rt_asso" {
+#  source = "../../modules/network/route"
+#  for_each = local.subnet_cidrs
+#
+#  env    = each.key
+#  routings = {}
+#  rt_id = module.subnet[]
+#  subnetting = each.value
+#  vpc_id = module.vpc.vpc_id
+#}
