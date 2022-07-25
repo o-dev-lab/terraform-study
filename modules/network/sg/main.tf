@@ -37,3 +37,15 @@ resource "aws_security_group" "sg_group" {
 ##  self                     = each.value.src_or_dst == "self" ? true : null
 #  description              = lookup(each.value, "desc", null)
 #}
+
+resource "aws_security_group_rule" "sg_rule" {
+  for_each = var.sg_rules
+  security_group_id        = aws_security_group.sg_group.id
+
+  from_port = each.value.type
+  protocol  = each.value.protocol
+  to_port   = each.value.to_port
+  type      = each.value.type
+  cidr_blocks      = each.value.cidr_blocks
+  description      = each.value.description
+}

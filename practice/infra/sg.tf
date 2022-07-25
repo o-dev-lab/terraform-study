@@ -16,9 +16,39 @@
 #  sg_rules = csvdecode(file("./sg_csv/${each.key}.csv"))
 #}
 
-module "security_groups" {
-  source   = "../../modules/network/sg"
-  vpc_id   = module.vpc.vpc_id
-
-  env      = "vpc"
+locals {
+  sg_rules = [
+    {
+      from_port = "22"
+      protocol  = "tcp"
+      to_port   = "22"
+      type      = "ingress"
+      description = "BSG IP"
+      cidr_blocks = "121.133.35.204/32"
+    },
+    {
+      from_port = 0
+      protocol  = "-1"
+      to_port   = 0
+      type      = "ingress"
+      description = "VPC CIDR"
+      cidr_blocks = var.vpc_cidr
+    },
+    {
+      from_port        = 0
+      to_port          = 0
+      protocol         = "-1"
+      cidr_blocks      = ["0.0.0.0/0"]
+      type      = "egress"
+      description = ""
+    }
+  ]
 }
+
+module "security_groups" {
+  source    = "../../modules/network/sg"
+  vpc_id    = module.vpc.vpc_id
+  env       = "vpc"
+  sg_rules  = local.sg_rules
+}
+
