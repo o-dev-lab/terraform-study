@@ -40,9 +40,7 @@ module "ec2" {
   source   = "../../modules/instance/ec2"
   for_each = local.ec2_info
 
-  env     = var.env
-
-  name             = each.key
+  env             = each.key
   attribute        = each.value
 #  security_groups  = [module.security_groups["${each.value.vpc_name}-${each.key}"].sg_id]
 #  default_ec2_role = local.ec2ssm_role
