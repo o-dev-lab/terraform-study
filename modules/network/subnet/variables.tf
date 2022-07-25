@@ -14,3 +14,12 @@ variable "vpc_id" {
   type        = string
 }
 
+variable "igw_id" {
+  description = "The ID of the IGW"
+  type        = string
+}
+
+variable "nat_id" {
+  description = "The ID of the NATGW"
+  type        = string
+}

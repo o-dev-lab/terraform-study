@@ -33,6 +33,8 @@ module "subnet" {
   env        = each.key
   subnetting = each.value
 
+  igw_id = module.vpc.igw_id
+  nat_id = module.nat.nat_id
 }
 
 
