@@ -47,3 +47,4 @@ module "ec2" {
   key_name         = "yk-southeast1"
 #  security_groups  = []
 }
+
