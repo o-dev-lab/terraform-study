@@ -45,5 +45,5 @@ module "ec2" {
 #  security_groups  = [module.security_groups["${each.value.vpc_name}-${each.key}"].sg_id]
 #  default_ec2_role = local.ec2ssm_role
   key_name         = "yk-southeast1"
-  security_groups  = []
+#  security_groups  = []
 }

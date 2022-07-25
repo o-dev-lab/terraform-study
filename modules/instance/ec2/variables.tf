@@ -8,10 +8,10 @@ variable "attribute" {
   description = "EC2 Attribute Set"
 }
 
-variable "security_groups" {
-  description = "The List of Security Groups"
-  type        = list(string)
-}
+#variable "security_groups" {
+#  description = "The List of Security Groups"
+#  type        = list(string)
+#}
 
 #variable "default_ec2_role" {
 #  description = "Default IAM Instance Profile"

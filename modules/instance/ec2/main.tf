@@ -6,7 +6,7 @@ resource "aws_instance" "ec2" {
   subnet_id              = var.attribute.subnet_id
   ami                    = var.attribute.ami
   key_name               = var.key_name
-  vpc_security_group_ids = var.security_groups
+#  vpc_security_group_ids = var.security_groups
 #  iam_instance_profile   = lookup(var.attribute, "ec2_role", var.default_ec2_role)
 
   instance_type     = lookup(var.attribute, "instance_type", "t3.medium")
