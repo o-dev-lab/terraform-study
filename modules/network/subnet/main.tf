@@ -14,3 +14,15 @@ resource "aws_subnet" "subnet" {
 
 }
 
+resource "aws_route_table" "rt" {
+  vpc_id = var.vpc_id
+  tags = {
+    Name = "${var.env}-rt"
+  }
+}
+
+resource "aws_route_table_association" "rt_asso" {
+  count = length(var.subnetting)
+  subnet_id      = aws_subnet.subnet[count.index].id
+  route_table_id = aws_route_table.rt.id
+}
