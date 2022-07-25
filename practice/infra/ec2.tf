@@ -9,28 +9,28 @@ locals {
   ec2_info = {
     bastion = {
       subnet_id  = module.subnet["pub-bastion"].subnet_ids.0
-      ami        = "ami-0fc5b5d2f35b0c1f7"
+      ami        = "ami-0c802847a7dd848c0"
     },
 
     pri-web1 = {
       subnet_id = module.subnet["pri-web"].subnet_ids.0
-      ami       = "ami-0eb14fe5735c13eb5"
+      ami       = "ami-0c802847a7dd848c0"
       isPrivate  = true
     },
     pri-web2 = {
       subnet_id = module.subnet["pri-web"].subnet_ids.1
-      ami       = "ami-0eb14fe5735c13eb5"
+      ami       = "ami-0c802847a7dd848c0"
       # 기본 Amazon Linux 2 AMI
       isPrivate  = true
     },
     pri-was1 = {
       subnet_id  = module.subnet["pri-was"].subnet_ids.0
-      ami        = "ami-0eb14fe5735c13eb5"
+      ami        = "ami-0c802847a7dd848c0"
       isPrivate  = true
     },
     pri-was2 = {
       subnet_id  = module.subnet["pri-was"].subnet_ids.1
-      ami        = "ami-0eb14fe5735c13eb5"
+      ami        = "ami-0c802847a7dd848c0"
       isPrivate  = true
     }
   }
