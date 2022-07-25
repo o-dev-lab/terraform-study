@@ -20,8 +20,8 @@ resource "aws_route_table" "rt" {
   route {
     cidr_block = "0.0.0.0/0"
 #    gateway_id = var.destination == "igw" ? "" : null
-    gateway_id = substr(var.env,0,3) == "igw" ? var.igw_id : null
-    nat_gateway_id = substr(var.env,0,3) == "nat" ? var.nat_id : null
+    gateway_id = substr(var.env,0,3) == "pub" ? var.igw_id : null
+    nat_gateway_id = substr(var.env,0,3) == "pri" ? var.nat_id : null
   }
 
   tags = {
