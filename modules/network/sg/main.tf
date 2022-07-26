@@ -42,7 +42,7 @@ resource "aws_security_group_rule" "sg_rule" {
   for_each = var.sg_rules
   security_group_id        = aws_security_group.sg_group.id
 
-  from_port = each.value.type
+  from_port = each.value.from_port
   protocol  = each.value.protocol
   to_port   = each.value.to_port
   type      = each.value.type
